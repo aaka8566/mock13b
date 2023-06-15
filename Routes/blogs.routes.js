@@ -18,4 +18,12 @@ blogsRouterd.post("/add",async(req,res)=>{
 
     res.status(200).send("blog added successfully");
 });
+blogsRouterd.delete("/delete/:id",async(req,res)=>{
+    //   console.log(req.body,"hi");
+    const {id}=req.params;
+
+       const blog=await blogModelm.findById({"_id":id});
+       await blog.findByIdAndDelete({"_id":id});
+   res.status(200).send("blog deleted successfully");
+   });
 module.exports={blogsRouterd};
