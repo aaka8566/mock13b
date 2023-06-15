@@ -11,4 +11,10 @@ blogsRouterd.get("/blogs",async(req,res)=>{
 
     res.send(blogs);
 });
+blogsRouterd.post("/add",async(req,res)=>{
+    const blog=await blogModelm(req.body);
+    await blog.save();
+
+    res.send(blog,"blog added successfully");
+});
 module.exports={blogsRouterd};

@@ -38,7 +38,7 @@ userRouterd.post("/login",async(req,res)=>{
             // result == true
             if(result){
                 const token = jwt.sign({ "name": user.name, "username": user.username,"authorid":user._id }, 'shhhhh');
-                res.status(200).send({"token":token});
+                res.status(200).send({"token":token,"username":user.username});
             }
             else{
                 res.status(200).send("wrong credentials");
