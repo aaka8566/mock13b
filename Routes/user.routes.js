@@ -28,7 +28,7 @@ res.status(200).send("user registered successfully");
    }
 });
 
-userRouterd.get("/login",async(req,res)=>{
+userRouterd.post("/login",async(req,res)=>{
  try{
 
     const {email,password}=req.body;
