@@ -21,9 +21,10 @@ blogsRouterd.post("/add",async(req,res)=>{
 blogsRouterd.delete("/delete/:id",async(req,res)=>{
     //   console.log(req.body,"hi");
     const {id}=req.params;
-
+console.log(id);
        const blog=await blogModelm.findById({"_id":id});
-       await blog.findByIdAndDelete({"_id":id});
+       console.log(blog);
+       await blogModelm.findByIdAndDelete({"_id":id});
    res.status(200).send("blog deleted successfully");
    });
 
@@ -32,7 +33,7 @@ blogsRouterd.delete("/delete/:id",async(req,res)=>{
     const {id}=req.params;
 
        const blog=await blogModelm.findById({"_id":id});
-       await blog.findByIdAndUpdate({"_id":id},req.body);
+       await blogModelm.findByIdAndUpdate({"_id":id},req.body);
    res.status(200).send("blog updated successfully");
    });  
 module.exports={blogsRouterd};
