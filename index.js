@@ -11,6 +11,11 @@ const {auth}=require("./Middleware/auth");
 app.use(express.json());
 app.use(cors());
 
+app.get("/",async(req,res)=>{
+    res.status(200).send("Hello mock13 backend")
+}
+)
+
 app.use("/users",userRouterd);
 app.use(auth);
 app.use("/blogs",blogsRouterd);
