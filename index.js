@@ -17,7 +17,7 @@ app.get("/",async(req,res)=>{
 )
 
 app.use("/users",userRouterd);
-app.use(auth);
+ app.use(auth);
 app.use("/blogs",blogsRouterd);
 
 
