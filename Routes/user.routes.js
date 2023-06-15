@@ -34,7 +34,7 @@ userRouterd.get("/login",async(req,res)=>{
     const {email,password}=req.body;
     const user=await userModelm.findOne({email});
     if(user){
-        bcrypt.compare(password, hash, function(err, result) {
+        bcrypt.compare(password, user.password, function(err, result) {
             // result == true
             if(result){
                 const token = jwt.sign({ "name": user.name, "username": user.username,"authorid":user._id }, 'shhhhh');
