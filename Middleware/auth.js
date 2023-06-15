@@ -1,7 +1,7 @@
 const bcrypt=require("bcrypt");
 const jwt=require("jsonwebtoken");
 
-const auth=(req,res,next)=>{
+const auth=async(req,res,next)=>{
 const {token}=req.headers;
 if(token){
     const decoded=jwt.verify(token, 'shhhhh');
